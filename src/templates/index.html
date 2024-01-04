@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Attendance Tracker</title>
+</head>
+<body>
+    <h1>Game Attendance Tracker</h1>
+    <form method="POST">
+        <label for="player_name">Select Player:</label>
+        <select name="player_name" id="player_name">
+            {% for player in players %}
+            <option value="{{ player.name }}">{{ player.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="attending_date">Attending Date:</label>
+        <input type="date" id="attending_date" name="attending_date">
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Players Attending</h2>
+    <ul>
+        {% for player in players %}
+        {% if player.game_date %}
+        <li>{{ player.name }} - {{ player.game_date }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>
