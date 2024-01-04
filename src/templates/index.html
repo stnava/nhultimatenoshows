@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Attendance Tracker</title>
+    <title>Duplicitous Game Attendance Tracker</title>
 </head>
 <body>
-    <h1>Game Attendance Tracker</h1>
+    <h1>Duplicitous Game Attendance Tracker</h1>
     <form method="POST">
         <label for="player_name">Select Player:</label>
         <select name="player_name" id="player_name">
@@ -18,13 +18,15 @@
         <input type="date" id="attending_date" name="attending_date">
         <button type="submit">Submit</button>
     </form>
-    <h2>Players Attending</h2>
-    <ul>
-        {% for player in players %}
-        {% if player.game_date %}
-        <li>{{ player.name }} - {{ player.game_date }}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
+
+    <h2>Player Attendance</h2>
+    {% for game_day in game_days %}
+        <h3>{{ game_day.date }}</h3>
+        <ul>
+            {% for player in game_day.players %}
+                <li>{{ player.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 </body>
 </html>
