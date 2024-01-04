@@ -12,8 +12,6 @@ class Player(db.Model):
     name = db.Column(db.String(100), nullable=False)
     game_date = db.Column(db.Date, nullable=True)  # Date of the game the player is attending
 
-db.create_all()
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -31,6 +29,10 @@ def index():
 
     players = Player.query.all()
     return render_template('index.html', players=players)
+
+def init_db():
+    with app.app_context():
+        db.create_all()  # Creates the necessary database tables
 
 if __name__ == '__main__':
     app.run(debug=True)

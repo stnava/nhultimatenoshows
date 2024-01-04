@@ -1,13 +1,20 @@
-from app import db, Player
+# initialize_db.py
+from app import app, db, Player
 
-player_names = ["Brian", "Marc Flore", "Brian Moore", "Ben Pfistner", "Ben Reinhold", 
-                "Erik Green", "Nathaniel Savard", "Gary Manter", "Ricky Chamberland", 
-                "David L", "Adam"]
+def init_db():
+    with app.app_context():
+        db.create_all()  # Create tables
 
-db.create_all()
+        player_names = ["brian", "Marc Flore", "Brian Moore", "Ben Pfistner", 
+                        "Ben Reinhold", "Erik Green", "Nathaniel Savard", 
+                        "gary manter", "Ricky Chamberland", "David L", "Adam"]
 
-for name in player_names:
-    if not Player.query.filter_by(name=name).first():
-        db.session.add(Player(name=name))
+        # Add players if they don't already exist
+        for name in player_names:
+            if not Player.query.filter_by(name=name).first():
+                db.session.add(Player(name=name))
 
-db.session.commit()
+        db.session.commit()
+
+if __name__ == '__main__':
+    init_db()
