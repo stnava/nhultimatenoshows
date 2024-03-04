@@ -18,3 +18,7 @@ python3 app.py
 ```
 
 then open the displayed address in your browser.
+
+## notes
+
+* David L March 4 2024 NO SHOW
