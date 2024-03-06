@@ -22,3 +22,4 @@ then open the displayed address in your browser.
 ## notes
 
 * David L March 4 2024 NO SHOW
+* Beef March 6 2024 NO SHOW
