@@ -23,4 +23,5 @@ then open the displayed address in your browser.
 
 * David L March 4 2024 NO SHOW
 * Beef March 6 2024 NO SHOW
-* Flore Match 13 2024 NO SHOW
+* Flore March 19 2024 NO SHOW
+* reinhold March 19 (or so) 2024
